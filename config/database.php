@@ -106,7 +106,7 @@ return [
     |
     */
 
-    'migrations' => 'migrations',
+    'migrations' => env('DB_MIGRATION_TABLE', 'migrations'),
 
     /*
     |--------------------------------------------------------------------------
