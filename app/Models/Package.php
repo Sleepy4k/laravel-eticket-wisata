@@ -2,18 +2,16 @@
 
 namespace App\Models;
 
-use Laravel\Sanctum\HasApiTokens;
 use Spatie\Activitylog\LogOptions;
 use Spatie\Permission\Traits\HasRoles;
-use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Model;
 use Spatie\Activitylog\Traits\LogsActivity;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Authenticatable
+class Package extends Model
 {
-    use HasApiTokens, HasFactory, Notifiable, LogsActivity, HasRoles;
-
+    use HasFactory, LogsActivity, HasRoles;
+    
     /**
      * The table associated with created data.
      *
@@ -40,7 +38,7 @@ class User extends Authenticatable
      *
      * @var string
      */
-    protected $table = 'users';
+    protected $table = 'packages';
 
     /**
      * The primary key associated with the table.
@@ -76,11 +74,10 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'username',
         'name',
-        'phone',
-        'language',
-        'password'
+        'description',
+        'price',
+        'tour_id'
     ];
 
     /**
@@ -97,9 +94,7 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $hidden = [
-        'password'
-    ];
+    protected $hidden = [];
     
     /**
      * The attributes that aren't mass assignable to determine if this is a date.
@@ -114,11 +109,10 @@ class User extends Authenticatable
      * @var array<string, string>
      */
     protected $casts = [
-        'username' => 'string',
         'name' => 'string',
-        'phone' => 'string',
-        'language' => 'string',
-        'password' => 'string'
+        'description' => 'string',
+        'price' => 'string',
+        'tour_id' => 'integer'
     ];
 
     /**
@@ -129,7 +123,7 @@ class User extends Authenticatable
     public function getActivitylogOptions(): LogOptions
     {
         return LogOptions::defaults()
-                            ->logOnly(['username','name','phone','language'])
+                            ->logOnly($this->fillable)
                             ->logOnlyDirty()
                             ->useLogName('model')
                             ->setDescriptionForEvent(fn(string $eventName) => trans('model.activity.description', ['model' => $this->table, 'event' => $eventName]))
