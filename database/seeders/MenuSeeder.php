@@ -15,9 +15,17 @@ class MenuSeeder extends Seeder
     public function run()
     {
         if (Menu::count() == 0) {
-            $menus = Menu::factory(10)->make();
+            $menus = config()->get('menu.admin');
+    
+            if (empty($menus)) {
+                throw new \Exception('Error: config/menu.php not found and defaults could not be merged. Please publish the package configuration before proceeding, or drop the tables manually.');
+            }
 
-            Menu::insert($menus->toArray());
+            $menu = collect($menus)->map(function ($menu) {
+                return $menu;
+            });
+
+            Menu::insert($menu->toArray());
         }
     }
 }
