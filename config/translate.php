@@ -214,8 +214,16 @@ return [
             'group' => 'rule',
             'key' => 'language.message',
             'text' => [
-                'id' => 'Data bahas tidak valid',
-                'en' => 'Invalid language data'
+                'id' => 'bahasa tidak valid',
+                'en' => 'Invalid language'
+            ]
+        ],
+        [
+            'group' => 'rule',
+            'key' => 'guard_name.message',
+            'text' => [
+                'id' => 'jenis platform tidak valid',
+                'en' => 'Invalid platform type'
             ]
         ],
         [
