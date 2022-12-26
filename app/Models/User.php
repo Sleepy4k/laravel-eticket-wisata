@@ -7,6 +7,7 @@ use Spatie\Activitylog\LogOptions;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Activitylog\Traits\LogsActivity;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -134,5 +135,25 @@ class User extends Authenticatable
                             ->useLogName('model')
                             ->setDescriptionForEvent(fn(string $eventName) => trans('model.activity.description', ['model' => $this->table, 'event' => $eventName]))
                             ->dontSubmitEmptyLogs();
+    }
+    
+    /**
+     * Get the all tours data
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function tours(): HasMany
+    {
+        return $this->hasMany(Tour::class);
+    }
+    
+    /**
+     * Get the all transactions data
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function transactions(): HasMany
+    {
+        return $this->hasMany(Transaction::class,'user_id','id');
     }
 }
