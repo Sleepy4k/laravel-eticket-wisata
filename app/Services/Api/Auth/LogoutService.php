@@ -8,12 +8,12 @@ use App\Http\Resources\Auth\LogoutResource;
 class LogoutService extends ApiService
 {
     /**
-     * Store a newly created resource in storage.
+     * Invoke a new api server.
      * 
      * @param  array  $request
      * @return \Illuminate\Http\Response
      */
-    public function store()
+    public function invoke()
     {
         $user = auth('sanctum')->user();
         $user->tokens()->delete();
