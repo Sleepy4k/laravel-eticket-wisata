@@ -8,25 +8,15 @@ use App\Services\Api\Auth\LogoutService;
 class LogoutController extends ApiController
 {
     /**
-     * Instantiate a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth:sanctum');
-    }
-
-    /**
-     * Store a newly created resource in storage.
+     * Invoke a new api server.
      *
      * @param  \App\Services\Api\Auth\LogoutService  $service
      * @return \Illuminate\Http\Response
      */
-    public function store(LogoutService $service)
+    public function __invoke(LogoutService $service)
     {
         try {
-            return $service->store();
+            return $service->invoke();
         } catch (\Throwable $th) {
             return $this->catchError($th);
         }

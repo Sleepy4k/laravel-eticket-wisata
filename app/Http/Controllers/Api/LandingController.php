@@ -8,15 +8,15 @@ use App\Http\Controllers\ApiController;
 class LandingController extends ApiController
 {
     /**
-     * Display a listing of the resource.
+     * Invoke a new api server.
      *
      * @param  \App\Services\Api\LandingService  $service
      * @return \Illuminate\Http\Response
      */
-    public function index(LandingService $service)
+    public function __invoke(LandingService $service)
     {
         try {
-            return $service->index();
+            return $service->invoke();
         } catch (\Throwable $th) {
             return $this->catchError($th);
         }
