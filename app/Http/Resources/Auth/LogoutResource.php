@@ -15,11 +15,10 @@ class LogoutResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'nis' => $this->nis,
+            'username' => $this->username,
             'name' => $this->name,
-            'grade' => $this->grade,
-            'language' => $this->language,
-            'voting_status' => $this->voting_status
+            'phone' => $this->phone,
+            'language' => $this->language
         ];
     }
 }

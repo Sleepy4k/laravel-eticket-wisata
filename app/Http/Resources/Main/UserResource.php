@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Resources\Auth;
+namespace App\Http\Resources\Main;
 
 use App\Http\Resources\Resource;
 
-class LoginResource extends Resource
+class UserResource extends Resource
 {
     /**
      * Transform the resource into an array.

@@ -1,7 +1,10 @@
 <?php
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\Api\Auth;
+use App\Http\Controllers\Api\Main;
+use App\Http\Controllers\Api\Error;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\LandingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,13 +24,11 @@ use Illuminate\Support\Facades\Route;
 |
 | You can list public API for any user in here. These routes are not guarded
 | by any authentication system. In other words, any user can access it directly.
-| Remember not to list anything of importance, use authenticate route instead.
+| Remember not to list anything of importance, use authenticat
+e route instead.
 */
 
-Route::get('/', fn() => response()->json([
-    'status' => 'OK',
-    'message' => 'server maintenance'
-]))->name('landing.index');
+Route::get('/', LandingController::class)->name('landing.index');
 
 /*
 |--------------------------------------------------------------------------
@@ -40,7 +41,7 @@ Route::get('/', fn() => response()->json([
 */
 
 Route::middleware('guest')->group(function() {
-    // Todo
+    Route::post('login', Auth\LoginController::class)->name('login.store');
 });
 
 /*
@@ -54,7 +55,12 @@ Route::middleware('guest')->group(function() {
 */
 
 Route::middleware('auth:sanctum')->group(function() {
-    // Todo
+    Route::get('user', Main\UserController::class)->name('user.index');
+    Route::get('package', Main\PackageController::class)->name('package.index');
+    Route::post('logout', Auth\LogoutController::class)->name('logout.store');
+    Route::get('ticket/{id}', Main\TicketController::class)->name('ticket.show');
+
+    Route::apiResource('transaction', Main\TransactionController::class, ['only' => ['index','store']]);
 });
 
 /*
@@ -67,7 +73,4 @@ Route::middleware('auth:sanctum')->group(function() {
 | listed below this code will not function or listed properly.
 */
 
-Route::any('{any}', fn() => response()->json([
-    'status' => 'OK',
-    'message' => 'endpoint not found'
-], 404))->where('any', '.*')->name('fallback');
+Route::any('{any}', Error\FallbackController::class)->where('any', '.*')->name('fallback');

@@ -32,24 +32,9 @@ class Service
     protected $auditInterface;
 
     /**
-     * @var gradeInterface
-     */
-    protected $gradeInterface;
-
-    /**
-     * @var votingInterface
-     */
-    protected $votingInterface;
-
-    /**
      * @var languageInterface
      */
     protected $languageInterface;
-
-    /**
-     * @var candidateInterface
-     */
-    protected $candidateInterface;
 
     /**
      * @var permissionInterface
@@ -69,10 +54,7 @@ class Service
      * @param  \App\Contracts\Models\MenuInterface  $menuInterface
      * @param  \App\Contracts\Models\PageInterface  $pageInterface
      * @param  \App\Contracts\Models\AuditInterface  $auditInterface
-     * @param  \App\Contracts\Models\GradeInterface  $gradeInterface
-     * @param  \App\Contracts\Models\VotingInterface  $votingInterface
      * @param  \App\Contracts\Models\LanguageInterface  $languageInterface
-     * @param  \App\Contracts\Models\CandidateInterface  $candidateInterface
      * @param  \App\Contracts\Models\PermissionInterface  $permissionInterface
      * @param  \App\Contracts\Models\ApplicationInterface  $applicationInterface
      */
@@ -82,10 +64,7 @@ class Service
         Models\MenuInterface $menuInterface,
         Models\PageInterface $pageInterface,
         Models\AuditInterface $auditInterface,
-        Models\GradeInterface $gradeInterface,
-        Models\VotingInterface $votingInterface,
         Models\LanguageInterface $languageInterface,
-        Models\CandidateInterface $candidateInterface,
         Models\PermissionInterface $permissionInterface,
         Models\ApplicationInterface $applicationInterface
     )
@@ -95,10 +74,7 @@ class Service
         $this->menuInterface = $menuInterface;
         $this->pageInterface = $pageInterface;
         $this->auditInterface = $auditInterface;
-        $this->gradeInterface = $gradeInterface;
-        $this->votingInterface = $votingInterface;
         $this->languageInterface = $languageInterface;
-        $this->candidateInterface = $candidateInterface;
         $this->permissionInterface = $permissionInterface;
         $this->applicationInterface = $applicationInterface;
     }

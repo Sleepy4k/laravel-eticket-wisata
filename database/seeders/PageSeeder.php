@@ -16,10 +16,6 @@ class PageSeeder extends Seeder
     {
         if (Page::count() == 0) {
             $pages = config()->get('page.admin');
-    
-            if (empty($pages)) {
-                throw new \Exception('Error: config/page.php not found and defaults could not be merged. Please publish the package configuration before proceeding, or drop the tables manually.');
-            }
 
             $page = collect($pages)->map(function ($page) {
                 return $page;

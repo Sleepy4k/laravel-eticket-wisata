@@ -7,11 +7,11 @@ use App\Services\ApiService;
 class FallbackService extends ApiService
 {
     /**
-     * Display a listing of the resource.
+     * Invoke a new api server.
      * 
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function invoke()
     {
         return $this->createResponse(trans('api.fallback.error'), [
             'error' => trans('api.fallback.message')

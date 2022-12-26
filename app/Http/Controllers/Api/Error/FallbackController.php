@@ -8,15 +8,15 @@ use App\Services\Api\Error\FallbackService;
 class FallbackController extends ApiController
 {
     /**
-     * Display a listing of the resource.
+     * Invoke a new api server.
      *
      * @param  \App\Services\Api\Error\FallbackService  $service
      * @return \Illuminate\Http\Response
      */
-    public function index(FallbackService $service)
+    public function __invoke(FallbackService $service)
     {
         try {
-            return $service->index();
+            return $service->invoke();
         } catch (\Throwable $th) {
             return $this->catchError($th);
         }

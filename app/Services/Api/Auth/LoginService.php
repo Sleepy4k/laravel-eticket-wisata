@@ -9,12 +9,12 @@ use App\Http\Resources\Auth\LoginResource;
 class LoginService extends ApiService
 {
     /**
-     * Store a newly created resource in storage.
+     * Invoke a new api server.
      * 
      * @param  array  $request
      * @return \Illuminate\Http\Response
      */
-    public function store($request)
+    public function invoke($request)
     {
         try {
             $user = $this->userInterface->findByCustomId([['nis', $request['nis']]]);
