@@ -14,7 +14,7 @@ class StoreRequest extends ApiRequest
     public function rules()
     {
         return [
-            'nis' => ['required','numeric','exists:users,nis'],
+            'username' => ['required','string','max:255','exists:users,username'],
             'password' => ['required','string','min:8','max:255']
         ];
     }
