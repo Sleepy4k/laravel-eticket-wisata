@@ -23,7 +23,8 @@ class DatabaseSeeder extends Seeder
             PageSeeder::class,
             TourSeeder::class,
             FacilitySeeder::class,
-            PackageSeeder::class
+            PackageSeeder::class,
+            TransactionSeeder::class
         ]);
     }
 }

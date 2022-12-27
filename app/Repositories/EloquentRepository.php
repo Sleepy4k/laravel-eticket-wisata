@@ -58,7 +58,7 @@ class EloquentRepository implements EloquentInterface
         } catch (\Throwable $th) {
             $this->sendReportLog('error', $th->getMessage());
 
-            return false;
+            return $this->model;
         }
     }
 
@@ -95,7 +95,7 @@ class EloquentRepository implements EloquentInterface
         } catch (\Throwable $th) {
             $this->sendReportLog('error', $th->getMessage());
             
-            return false;
+            return $this->model;
         }
     }
 
@@ -111,7 +111,7 @@ class EloquentRepository implements EloquentInterface
         } catch (\Throwable $th) {
             $this->sendReportLog('error', $th->getMessage());
             
-            return false;
+            return $this->model;
         }
     }
     
@@ -131,7 +131,7 @@ class EloquentRepository implements EloquentInterface
         } catch (\Throwable $th) {
             $this->sendReportLog('error', $th->getMessage());
             
-            return false;
+            return $this->model;
         }
     }
     
@@ -151,7 +151,7 @@ class EloquentRepository implements EloquentInterface
         } catch (\Throwable $th) {
             $this->sendReportLog('error', $th->getMessage());
             
-            return false;
+            return $this->model;
         }
     }
 
@@ -168,7 +168,7 @@ class EloquentRepository implements EloquentInterface
         } catch (\Throwable $th) {
             $this->sendReportLog('error', $th->getMessage());
             
-            return false;
+            return [];
         }
     }
     
@@ -185,7 +185,7 @@ class EloquentRepository implements EloquentInterface
         } catch (\Throwable $th) {
             $this->sendReportLog('error', $th->getMessage());
             
-            return false;
+            return $this->model;
         }
     }
 
@@ -202,7 +202,7 @@ class EloquentRepository implements EloquentInterface
         } catch (\Throwable $th) {
             $this->sendReportLog('error', $th->getMessage());
             
-            return false;
+            return $this->model;
         }
     }
     
@@ -219,7 +219,7 @@ class EloquentRepository implements EloquentInterface
         } catch (\Throwable $th) {
             $this->sendReportLog('error', $th->getMessage());
             
-            return false;
+            return $this->model;
         }
     }
 
@@ -238,7 +238,7 @@ class EloquentRepository implements EloquentInterface
         } catch (\Throwable $th) {
             $this->sendReportLog('error', $th->getMessage());
             
-            return false;
+            return $this->model;
         }
     }
     

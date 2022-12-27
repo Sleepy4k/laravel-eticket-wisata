@@ -25,7 +25,7 @@ class TransactionFactory extends Factory
     public function definition()
     {
         return [
-            'ticket_id' => rand(1,10),
+            'ticket_id' => 'TICKET-'.now()->format('Ymd').'-'.rand(1,10).'-'.rand(1,10).'-'.rand(1,10),
             'amount' => rand(1,5),
             'total_price' => rand(20,100) . '000',
             'payment_date' => fake()->dateTimeBetween('-1 years', 'now'),

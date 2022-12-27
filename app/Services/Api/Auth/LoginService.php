@@ -17,7 +17,7 @@ class LoginService extends ApiService
     public function invoke($request)
     {
         try {
-            $user = $this->userInterface->findByCustomId([['nis', $request['nis']]]);
+            $user = $this->userInterface->findByCustomId([['username', $request['username']]]);
         } catch (\Throwable $th) {
             return $this->createResponse(trans('api.login.error'), [
                 'error' => trans('api.login.not_found')
