@@ -18,7 +18,7 @@ class TransactionResource extends Resource
             'ticket_id' => $this->ticket_id,
             'amount' => $this->amount,
             'payment_date' => dateYmdToDmy($this->payment_date),
-            'total_price' => $this->price,
+            'total_price' => $this->total_price,
             'package' => $this->package->name,
             'user' => $this->user->name
         ];
