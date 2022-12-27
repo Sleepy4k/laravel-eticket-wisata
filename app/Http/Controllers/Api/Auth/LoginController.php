@@ -9,6 +9,16 @@ use App\Http\Requests\Api\Auth\Login\StoreRequest;
 class LoginController extends ApiController
 {
     /**
+     * Instantiate a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('guest');
+    }
+
+    /**
      * Invoke a new api server.
      *
      * @param  \Illuminate\Http\Request  $request

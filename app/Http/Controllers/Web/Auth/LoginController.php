@@ -17,6 +17,8 @@ class LoginController extends WebController
     {
         $this->routeName = 'main.dashboard.index';
         $this->indexView = 'pages.auth.login';
+        
+        $this->middleware('guest');
     }
 
     /**

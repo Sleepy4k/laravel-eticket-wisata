@@ -8,6 +8,16 @@ use App\Services\Api\Main\TicketService;
 class TicketController extends ApiController
 {
     /**
+     * Instantiate a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth:sanctum');
+    }
+
+    /**
      * Invoke a new api server.
      *
      * @param  \App\Services\Api\Main\TicketService  $service

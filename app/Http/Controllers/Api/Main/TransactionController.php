@@ -9,6 +9,16 @@ use App\Http\Requests\Api\Main\Transaction\StoreRequest;
 class TransactionController extends ApiController
 {
     /**
+     * Instantiate a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth:sanctum');
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @param  \App\Services\Api\Main\TransactionService  $service

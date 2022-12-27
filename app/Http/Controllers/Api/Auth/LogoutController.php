@@ -8,6 +8,16 @@ use App\Services\Api\Auth\LogoutService;
 class LogoutController extends ApiController
 {
     /**
+     * Instantiate a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth:sanctum');
+    }
+
+    /**
      * Invoke a new api server.
      *
      * @param  \App\Services\Api\Auth\LogoutService  $service

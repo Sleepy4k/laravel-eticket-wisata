@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Web\Auth;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\WebController;
 use App\Services\Web\Auth\LogoutService;
 
@@ -21,19 +20,17 @@ class LogoutController extends WebController
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Invoke a new web server.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Services\Web\Auth\LogoutService  $service
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, LogoutService $service)
+    public function __invoke(LogoutService $service)
     {
         try {
-            $service->store($request);
-    
-            return to_route($this->routeName);
+            return $service->invoke() ? to_route($this->routeName) : back();
         } catch (\Throwable $th) {
-            return $this->redirectError($th);
+            return $this->catchError($th);
         }
     }
 }
