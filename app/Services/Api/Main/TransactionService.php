@@ -16,14 +16,14 @@ class TransactionService extends ApiService
     {
         $transactions = $this->transactionInterface->all(['*'], ['package','user']);
 
-        if (count($transactions) > 0) {
+        if (empty($transaction)) {
             return $this->createResponse(trans('api.response.accepted'), [
-                'data' => TransactionResource::collection($transactions)
+                'data' => trans('api.response.no_data')
             ], 202);
         }
 
         return $this->createResponse(trans('api.response.accepted'), [
-            'data' => trans('api.response.no_data')
+            'data' => TransactionResource::collection($transactions)
         ], 202);
     }
 

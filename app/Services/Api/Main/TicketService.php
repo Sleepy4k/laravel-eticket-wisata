@@ -17,7 +17,7 @@ class TicketService extends ApiService
     {
         $transaction = $this->transactionInterface->findByCustomId([['ticket_id', $id]], ['*'], ['package','user']);
 
-        if (empty($transaction)) {
+        if (empty($transaction->getOriginal())) {
             return $this->createResponse(trans('api.response.accepted'), [
                 'data' => trans('api.response.no_data')
             ], 202);
