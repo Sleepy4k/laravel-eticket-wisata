@@ -3,28 +3,30 @@
 namespace App\Services\Web\Auth;
 
 use App\Services\WebService;
-use Illuminate\Http\Request;
 
 class LogoutService extends WebService
 {
     /**
-     * Store a newly created resource in storage.
+     * Invoke a new web server.
      * 
-     * @param  Illuminate\Http\Request  $request
      * @return void
      */
-    public function store(Request $request)
+    public function invoke()
     {
-        $user = auth()->user();
+        try {
+            $user = auth()->user();
+    
+            activity('auth')->withProperties($user)->log($user->username.' berhasil logout');
+    
+            auth()->logout();
+             
+            $session = request()->session();
+            $session->invalidate();
+            $session->regenerateToken();
 
-        activity('auth')->withProperties($user)->log($user->username.' berhasil logout');
-
-        auth()->logout();
-         
-        $session = $request->session();
-        $session->invalidate();
-        $session->regenerateToken();
-
-        return $session;
+            return true;
+        } catch (\Throwable $th) {
+            return false;
+        }
     }
 }
