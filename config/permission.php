@@ -161,6 +161,50 @@ return [
 
     'seeder' => [
         'list' => [
+            'permission.index',
+            'permission.create',
+            'permission.store',
+            'permission.show',
+            'permission.edit',
+            'permission.update',
+            'permission.destroy',
+
+            'role.index',
+            'role.create',
+            'role.store',
+            'role.show',
+            'role.edit',
+            'role.update',
+            'role.destroy',
+            
+            'menu.index',
+            'menu.create',
+            'menu.store',
+            'menu.show',
+            'menu.edit',
+            'menu.update',
+            'menu.destroy',
+
+            'page.index',
+            'page.create',
+            'page.store',
+            'page.show',
+            'page.edit',
+            'page.update',
+            'page.destroy',
+
+            'translate.index',
+            'translate.create',
+            'translate.store',
+            'translate.show',
+            'translate.edit',
+            'translate.update',
+            'translate.destroy',
+
+            'application.index',
+            'application.create',
+            'application.store',
+
             'auth.index',
             'auth.show',
 
@@ -171,17 +215,75 @@ return [
             'query.show',
 
             'system.index',
-            'system.show'
+            'system.show',
+            
+            'dashboard.index'
         ],
         'role' => [
             'superadmin' => [
-                // Todo
+                'permission.index',
+                'permission.create',
+                'permission.store',
+                'permission.show',
+                'permission.edit',
+                'permission.update',
+                'permission.destroy',
+    
+                'role.index',
+                'role.create',
+                'role.store',
+                'role.show',
+                'role.edit',
+                'role.update',
+                'role.destroy',
+                
+                'menu.index',
+                'menu.create',
+                'menu.store',
+                'menu.show',
+                'menu.edit',
+                'menu.update',
+                'menu.destroy',
+    
+                'page.index',
+                'page.create',
+                'page.store',
+                'page.show',
+                'page.edit',
+                'page.update',
+                'page.destroy',
+    
+                'translate.index',
+                'translate.create',
+                'translate.store',
+                'translate.show',
+                'translate.edit',
+                'translate.update',
+                'translate.destroy',
+    
+                'application.index',
+                'application.create',
+                'application.store',
+    
+                'auth.index',
+                'auth.show',
+    
+                'model.index',
+                'model.show',
+    
+                'query.index',
+                'query.show',
+    
+                'system.index',
+                'system.show',
+                
+                'dashboard.index'
             ],
-            'admin' => [
-                // Todo
+            'management' => [
+                'dashboard.index'
             ],
-            'user' => [
-                // Todo
+            'loket' => [
+                'dashboard.index'
             ]
         ]
     ]

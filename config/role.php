@@ -3,9 +3,9 @@
 return [
     'seeder' => [
         'list' => [
-            'superadmin',
-            'admin',
-            'user'
+            'root',
+            'management',
+            'loket'
         ]
     ]
 ];
